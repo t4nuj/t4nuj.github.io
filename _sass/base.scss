@@ -1,0 +1,57 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body  {
+   background-color: #FFFFF0;
+}
+
+* {
+    /*border: 1px solid black;*/
+    box-sizing: border-box;
+}
+
+p {
+    font-family:  'Roboto Slab',serif;
+    color: #293149;
+    display: inline-block;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.title-text {
+    font-family: 'Roboto Mono',monospace;
+    color: #293149;    
+    font-weight: 600;
+}
+
+p + p {
+  margin-top: 4vh;
+}
+
+span {
+  font-weight: 700;
+}
+
+p {
+    font-size: 1.25em;
+    line-height: 1.25em;
+}
+
+@media (min-width: 1024px) {
+    p {
+        font-size: 1.5em;
+        line-height: 1.5em;
+    }   
+}
+
+@media (min-width: 2555px) {
+    p {
+        font-size:2em;
+        line-height: 1.5em;
+    }
+}
+
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tanuj Bhatia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:500|Roboto+Slab:400,700');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
+    </style>
+    
+    {% for s in page.stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{s}}">
+    {% endfor %}
+
+</head>
+
+<body>
+{{content}}
+</body>
+</html>

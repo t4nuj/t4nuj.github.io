@@ -1,0 +1,53 @@
+---
+---
+
+@import 'base';
+
+#masthead {
+  min-width: 100%;
+  margin-bottom: 4vh;
+  padding-top: 5vh;
+  padding-bottom: 4vh; 
+  text-align: center;
+}
+
+#profile-img {
+  border: 0px solid black;
+  margin: auto auto;
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
+  background: url('https://i.imgur.com/7SJJgzS.jpg');
+  background-size: auto 140%;
+  background-origin:border-box;
+  background-position: 25% 25%;
+  margin-bottom: 2vh;
+}
+    
+#content {
+padding: 0 4% 2vh 4%;
+}
+
+#title-text {
+    font-size: 4em;
+}
+
+@media (min-width: 1024px) {
+    #masthead {
+        /*min-height: 60vh;*/
+    }
+
+    #content {
+    padding: 0 25% 2vh 30%;
+    }
+
+    #profile-img {
+        width: 15vw;
+        height: 15vw;
+    }
+
+    #title-text {
+        font-size: 4em;
+    }
+
+}
