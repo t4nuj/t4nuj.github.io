@@ -1,7 +1,10 @@
-
 html, body {
   margin: 0;
   padding: 0;
+}
+
+html {
+    overflow-y: scroll;
 }
 
 body  {
@@ -19,38 +22,51 @@ p {
     display: inline-block;
     font-weight: 400;
     text-align: justify;
+    font-size: 1em;
+    line-height: 1.25em;
 }
 
 .title-text {
     font-family: 'Roboto Mono',monospace;
-    color: #293149;    
+    color: #293149;
+    font-size: 2em;
+    /*color: #FFFFF0;    */
     font-weight: 600;
+}
+
+pre {
+    font-family: 'Roboto Mono',monospace;
+    margin: 0;
 }
 
 p + p {
   margin-top: 4vh;
 }
 
-span {
+span.b {
   font-weight: 700;
 }
 
-p {
-    font-size: 1.25em;
-    line-height: 1.25em;
-}
+@media (min-width: 768px) {
+    .title-text {
+        font-size: 4em;
+    }
 
-@media (min-width: 1024px) {
     p {
-        font-size: 1.5em;
+        font-size: 1.25em;
         line-height: 1.5em;
-    }   
+    }
+
 }
 
 @media (min-width: 2555px) {
+    .title-text {
+        font-size: 6em;
+    }
+
     p {
         font-size:2em;
-        line-height: 1.5em;
+        line-height: 2.25em;
     }
 }
 
