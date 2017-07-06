@@ -10,6 +10,13 @@
     text-align: center;
 }
 
+.opacity-trans {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    -webkit-opacity: 0;
+    -webkit-transition: opacity 1s ease-in;
+}
+
 #profile-img {
     border: 0px solid black;
     margin: auto auto;
@@ -21,18 +28,10 @@
     background-origin:border-box;
     background-position: 25% 25%;
     margin-bottom: 4vh;
-    opacity: 0;
-    transition: opacity 0.7s ease-in;
-    -webkit-opacity: 0;
-    -webkit-transition: opacity 0.7s ease-in;
 }
     
 #content {
     padding: 0 4% 2vh 4%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
-    -webkit-opacity: 0;
-    -webkit-transition: opacity 0.5s ease-in;
 }
 
 #title-text {
@@ -66,3 +65,24 @@
 #cursor {
     color: #FA8072;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 3em;
+    min-width: 100%; 
+    text-align: center;
+    
+}
+
+.links {
+
+    font-size: 1.75em;
+    color: #293149;
+    float: bottom;
+}
+
+a+a {
+    margin-left: 0.5em;
+}
+

@@ -23,17 +23,13 @@ function typeWriter(elem,n) {
         elem.innerHTML = text[n];
         var time = 150;
         if (n >= text.length-2)
-            time = 500;
+            time = 300;
         n++;
         setTimeout(function() {
             typeWriter(elem, n);
         }, time);
     } else {
-        setTimeout(function() {
-            clearInterval(blink_id);
-            setTimeout(loadEverything,430);
-        },50);
-
+        setTimeout(loadEverything,200);
     }
 }
 
@@ -43,6 +39,7 @@ function loadEverything() {
     document.getElementById('caret2').style.opacity = 0;
     document.getElementById('content').style.opacity = 1;
     document.getElementById('profile-img').style.opacity = 1;
+    document.getElementById('footer').style.opacity = 1;
 }
 
 function blinkCursor() {
@@ -63,6 +60,7 @@ window.onload = function() {
     // setTimeout(blinkCursor,420);
     // setTimeout(blinkCursor,820);
     setTimeout(function() {
+        clearInterval(blink_id);
         typeWriter(elem,0);
     }, 1500);
     // loadEverything()

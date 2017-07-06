@@ -5,6 +5,8 @@ html, body {
 
 html {
     overflow-y: scroll;
+    position: relative;
+    min-height: 100%;
 }
 
 body  {
@@ -15,6 +17,15 @@ body  {
     /*border: 1px solid black;*/
     box-sizing: border-box;
 }
+
+a {
+  color: #293149;
+}
+
+a:hover {
+    color: #FA8072;
+}
+
 
 p {
     font-family:  'Roboto Slab',serif;
