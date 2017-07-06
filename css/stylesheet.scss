@@ -17,6 +17,12 @@
     -webkit-transition: opacity 1s ease-in;
 }
 
+.no-trans {
+    transition: none !important;
+    -webkit-transition: none !important;
+
+}
+
 #profile-img {
     border: 0px solid black;
     margin: auto auto;
@@ -66,16 +72,16 @@
     color: #FA8072;
 }
 
-.footer {
+#footer {
     position: absolute;
     bottom: 0;
     height: 3em;
     min-width: 100%; 
     text-align: center;
-    
+
 }
 
-.links {
+#links {
 
     font-size: 1.75em;
     color: #293149;

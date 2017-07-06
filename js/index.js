@@ -1,7 +1,10 @@
-var final_text = "./tanuj"
 cursor = "<span id=\"cursor\">|</span>";
 caret = "<span id=\"caret\">></span>";
 caret2 = "<span id=\"caret2\">></span>";
+
+
+// hardcoded hack to ensure text remains centered with cursor and caret
+// find a more elegant solution later
 var text = [
     caret + " " + cursor +  "        ",
     caret + " ." + cursor +  "       ",
@@ -16,6 +19,13 @@ var text = [
 
 var blink_id = -1;
 
+// web api constants for finding how a person reached the page
+// found at https://developer.mozilla.org/en-US/docs/Web/API/PerformanceNavigation
+
+var TYPE_NAVIGATE = 0;
+var TYPE_RELOAD = 1;
+var TYPE_BACK_FORWARD = 2;
+var TYPE_RESERVED = 255;
 
 
 function typeWriter(elem,n) {
@@ -49,20 +59,46 @@ function blinkCursor() {
     },210)
 }
 
-blink_id = setInterval(blinkCursor,420);
+var navType = window.performance.navigation.type; 
+var blink_id = null;
 
+function clear_transitions() {
+    // By setting class this way, a reflow is triggered which avoids
+    // race condition while setting css styles 
+    // (avoids the problem of animation being triggered before animation is cleared)
 
+    document.getElementById('cursor').setAttribute("class","no-trans");
+    document.getElementById('caret').setAttribute("class","no-trans");
+    document.getElementById('caret2').setAttribute("class","no-trans");
+    document.getElementById('content').setAttribute("class","no-trans");
+    document.getElementById('profile-img').setAttribute("class","no-trans");
+    document.getElementById('footer').setAttribute("class","no-trans");
+}
 
-window.onload = function() {
+function animate_website() {
+    blink_id = setInterval(blinkCursor,420);
+    window.onload = function() {
     var elem = document.getElementById('terminal');
-    var text = elem.innerHTML;
-    // blinkCursor();
-    // setTimeout(blinkCursor,420);
-    // setTimeout(blinkCursor,820);
     setTimeout(function() {
-        clearInterval(blink_id);
-        typeWriter(elem,0);
-    }, 1500);
-    // loadEverything()
+            clearInterval(blink_id);
+            typeWriter(elem,0);
+        },1500);
+    };
+}
 
-};
+if(navType || navType === 0) {
+    
+    // Don't want transition animations when page is reached by pressing back/forward, bad ux.
+    if(navType === TYPE_BACK_FORWARD) {
+        var elem = document.getElementById('terminal')
+        elem.innerHTML = text[text.length-1]
+        clear_transitions();
+        loadEverything();
+    }
+    else {
+        animate_website();       
+    }
+} else {
+    // don't know how we got here, let's animate 
+    animate_website();
+}
