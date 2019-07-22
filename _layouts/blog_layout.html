@@ -1,0 +1,19 @@
+---
+layout: default
+stylesheets: ["css/blog.css"]
+navbar_position: "Blog"
+---
+{% if page.name != "blog-index.html" %}
+<div class="grid75 blog-post-wrapper">
+<h2 class="blog-title">{{page.title}}</h2>
+<p class="blog-date">{{page.pdate}}</p>
+<p class="blog-date"><a class="no-dec" href="/blog">&lt; Back</a></p>
+<!-- <p class="blog-date"><- Back</p> -->
+{% endif %}
+<div class="blog-content">
+{{content}}
+</div>
+{% if page.name != "blog-index.html" %}
+<div class="blog-footer-wrapper"><span class="blog-footer">  <a class="no-dec" href="/blog"> &lt; Back</a> | <a class="no-dec" onclick="scrollToElement('page-top');">Top</a></span></div>
+{% endif %}
+</div>

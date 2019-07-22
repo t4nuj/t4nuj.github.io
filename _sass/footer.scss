@@ -1,0 +1,40 @@
+#footer {
+    height: 15vh;
+    max-height: 150px;
+    min-width: 100%; 
+    text-align: center;
+    position: relative;
+}
+
+#links {
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    align-content: center;
+}
+
+.flink + .flink {
+    margin-left: 0.75rem;
+}
+
+.beta {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+.dark .dark-mode {
+    display: none;
+}
+
+.light .light-mode, html .light-mode {
+    display: none;
+}
+
+.dark .light-mode{
+    display: inline-block;
+}

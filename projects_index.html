@@ -1,0 +1,27 @@
+---
+layout: projects_layout
+permalink: "/work"
+--- 
+<div class="grid75">
+<div>
+	<h2>Experience</h2>
+	{% for work in site.work %}
+		<div class="proj-container">
+			<p class="proj-title">{{work.company}}</p>
+			<p class="proj-date"><em>{{work.title}}</em></p>
+			<p class="proj-date"><em>{{work.tenure}}</em></p>
+			{{work.content}}
+		</div>
+	{% endfor %}
+</div>
+<div>
+	<h2>Projects</h2>
+	{% for proj in site.projects %}
+		<div class="proj-container">
+			<p class="proj-title">{{proj.title}}</p>
+			<p class="proj-date"><em>{{proj.pdate}}</em></p>
+			<p class="proj-desc">{{proj.desc}}</p>
+		</div>
+	{% endfor %}
+</div>
+</div>

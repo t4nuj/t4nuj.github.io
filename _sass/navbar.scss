@@ -1,0 +1,86 @@
+$navbar-bottom-width: 0.18rem;
+
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0px;
+    justify-content: center;
+    align-content: left;
+    border-bottom-width: $navbar-bottom-width;
+    border-bottom-style: solid;
+    font-size: 1.25rem;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar > div{
+    text-align: center;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+}
+
+/*.navbar > div:first-child {
+  padding-left: 0rem;
+}
+
+.navbar > div:last-child {
+  padding-right: 0rem;
+}*/
+
+.title-text {
+  text-align: center;
+  vertical-align: center;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.current-page {
+    font-weight: normal;
+    /*border-bottom-width: $navbar-bottom-width;*/
+    /*border-bottom-style: solid;*/
+
+}
+
+.left-grid-col {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.left-grid-col > div {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 200px) {
+    .navbar {
+            border-bottom-width: 0px;
+            border-bottom-style: solid;
+    }
+    .navbar > div{
+            border-bottom-width: $navbar-bottom-width;
+            border-bottom-style: solid;
+    }
+}
+
+@media (orientation: landscape) {
+
+    .title-text {
+      text-align: right;
+    }
+
+    .navbar {
+      justify-content: flex-start;
+    }
+
+    .left-grid-col {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+}

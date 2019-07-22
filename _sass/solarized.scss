@@ -1,0 +1,52 @@
+@import 'variables';
+
+@mixin rebase($rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3, $linkcol) 
+{
+    ::selection {
+      background: $rebase01; /* WebKit/Blink Browsers */
+    }
+    ::-moz-selection {
+      background: $rebase01; /* Gecko Browsers */
+    }
+    background-color:$rebase03;
+    transition: background-color 200ms ease-out, color 200ms ease-out;
+    color:$rebase0;
+    * { color:$rebase0; transition: background-color 200ms ease-out, color 200ms ease-out; }
+    h1,h2,h3,h4,h5,h6 { color:$rebase0;}
+    a, a:active, a:visited { color: $linkcol;}
+    a.no-dec, a.no-dec:active, a.no-dec:visited { color: $rebase0; }
+    .navbar a { color: $rebase0; }
+    .tooltip::before {background-color:$rebase3; color:$rebase00;}
+    .tooltip::after {border-color: $rebase3 transparent transparent;}
+    .blog-footer {
+        border-top: 0.08rem solid $rebase0;
+    }
+}
+@mixin accentize($accent) {
+    .tooltip:hover i, a:active *, a:hover * { color: $accent; }
+    .current-page a {color: $accent;}
+    .navbar, .navbar>div{ border-bottom-color: $accent }
+    #cursor {color: $accent}
+    .navbar a:hover, a.no-dec:hover {color: $accent}
+    .proj-title {
+      color: $accent;
+    }
+}
+/* light is default mode, so pair with general html definition */
+
+html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03,$blue)}
+.dark  { 
+    @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3,$purple);
+}
+html * {
+    color-profile: sRGB;
+    rendering-intent: auto;
+}
+
+.accent {
+	@include accentize($light-accent)
+}
+
+.accent.dark {
+  @include accentize($dark-accent)
+}

@@ -1,3 +1,9 @@
+@import 'solarized';
+@import 'fluid-sizing';
+@import 'navbar';
+@import 'footer';
+@import 'tooltip';
+
 html, body {
   margin: 0;
   padding: 0;
@@ -7,78 +13,74 @@ html {
     overflow-y: scroll;
     position: relative;
     min-height: 100%;
+    scroll-behavior: smooth;
 }
 
 body  {
-   background-color: #FFFFF0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-* {
-    /*border: 1px solid black;*/
-    box-sizing: border-box;
+.spacer {
+    flex: 1;
 }
 
-a {
-  color: #293149;
+.center-text {
+    text-align: center;
 }
 
-a:hover {
-    color: #FA8072;
+.large-text {
+  font-size: 1.5rem;
 }
 
-
-p {
-    font-family:  'Roboto Slab',serif;
-    color: #293149;
-    display: inline-block;
-    font-weight: 400;
-    text-align: justify;
-    font-size: 1em;
-    line-height: 1.25em;
-}
-
-.title-text {
-    font-family: 'Roboto Mono',monospace;
-    color: #293149;
-    font-size: 2em;
-    /*color: #FFFFF0;    */
-    font-weight: 600;
-}
-
-pre {
+pre, .mono-font {
     font-family: 'Roboto Mono',monospace;
     margin: 0;
 }
 
-p + p {
-  margin-top: 4vh;
+.mono-font * {
+  font-family: 'Roboto Mono',monospace;
+  font-weight: lighter;
 }
 
-span.b {
-  font-weight: 700;
+#content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86vw;
+    max-width: 960px;
 }
 
-@media (min-width: 768px) {
-    .title-text {
-        font-size: 4em;
-    }
-
-    p {
-        font-size: 1.25em;
-        line-height: 1.5em;
-    }
-
+@media screen and (min-width: 700px) {
+    #content-grid {
+    width: 70vw;
+  }
 }
 
-@media (min-width: 2555px) {
-    .title-text {
-        font-size: 6em;
-    }
-
-    p {
-        font-size:2em;
-        line-height: 2.25em;
-    }
+#sticky-title {
+  position: absolute;
+  top: 40vh;
+  display: flex;
+  width: 100%;
 }
 
+#terminal-text {
+  font-size: 3rem;
+  margin: auto;
+}
 
+@media (orientation: landscape) and (min-width: 1024px) {
+    .grid75 {
+    width: 65%;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}

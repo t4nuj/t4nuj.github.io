@@ -1,0 +1,76 @@
+---
+---
+@import 'variables';
+
+$trans-time: 0.1s;
+
+.blog-post-wrapper {
+	font-size: 1.1rem;
+}
+
+.blog-title {
+	margin-bottom: 0px;
+	transition: color $trans-time ease-in;
+    -webkit-transition: color $trans-time ease-in;
+    font-weight:bold;
+}
+
+.blog-date {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 0.8rem;
+	font-style: italic;
+	line-height: 1.1rem;
+}
+
+.blog-read {
+	font-style: italic;
+	font-weight: normal;
+	font-size: 1rem;
+	opacity: 0;
+    transition: opacity $trans-time ease-in;
+    -webkit-opacity: 0;
+    -webkit-transition: opacity $trans-time ease-in;
+}
+
+.blog-desc {
+	margin-bottom: 0px;
+}
+
+.blog-footer {
+	font-size: 0.8rem;
+	padding: 0.5rem;
+}
+
+.blog-footer-wrapper {
+	margin-top: 4rem;
+}
+
+.blog-container-inner {
+	display: inline-block;
+}
+
+.blog-container-inner:hover {
+	cursor: pointer;
+}
+
+/*.blog-container-inner .blog-title::after{
+	content: " Read >";
+	font-size: 0.9rem;
+	font-weight: normal;
+	alignment-baseline: before-edge;
+	margin-left: 4em;
+}*/
+
+.blog-container-inner:hover .blog-title,.blog-container-inner:hover .blog-read{
+	color: $light-accent;
+	opacity: 1;
+	-webkit-opacity: 1;
+}
+
+
+.dark {
+	.blog-container-inner:hover .blog-title,.blog-container-inner:hover .blog-read{
+		color: $dark-accent;
+	}
+}

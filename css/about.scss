@@ -1,0 +1,53 @@
+---
+---
+.about-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 2vh;
+}
+
+#prof-img {
+    border: 0px solid black;
+    margin: auto;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background-size: auto 150%;
+    background-origin:border-box;
+    background-position: 50% top;
+    background-image: url('/assets/profile_2.jpg');
+    margin-top: 1.5rem;
+}
+
+#prof-img-container {
+}
+
+@media (min-width: 875px) {
+    #prof-img {
+        width: 20vw;
+        height: 20vw;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 1024px){ 
+    .about-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 5vw;
+        margin-top: 10vh;
+    }
+}
+
+.prf-links {
+    width: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.prf-links > * {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}

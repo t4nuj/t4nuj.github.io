@@ -1,6 +1,13 @@
+(function website_load_animation(animate_page){
 cursor = "<span id=\"cursor\">|</span>";
 caret = "<span id=\"caret\">></span>";
 caret2 = "<span id=\"caret2\">></span>";
+var localStore = null;
+try {
+    localStore = window.localStorage;
+} catch(err) {
+
+}
 
 
 // hardcoded hack to ensure text remains centered with cursor and caret
@@ -13,8 +20,8 @@ var text = [
     caret + " ./ta" + cursor +  "    ",
     caret + " ./tan" + cursor +  "   ",
     caret + " ./tanu" + cursor +  "  ",
-    caret + " ./tanuj" + cursor +  " ",
-    caret + " ./tanuj  \n" + caret2 + " " + cursor +  "        "
+    caret + " ./tanuj" + cursor +  " "
+    //caret + " ./tanuj  \n" + caret2 + " " + cursor +  "        "
     ];
 
 var blink_id = -1;
@@ -32,8 +39,6 @@ function typeWriter(elem,n) {
     if (n < (text.length)) {
         elem.innerHTML = text[n];
         var time = 150;
-        if (n >= text.length-2)
-            time = 300;
         n++;
         setTimeout(function() {
             typeWriter(elem, n);
@@ -44,12 +49,13 @@ function typeWriter(elem,n) {
 }
 
 function loadEverything() {
-    document.getElementById('cursor').style.opacity = 0;
-    document.getElementById('caret').style.opacity = 0;
-    document.getElementById('caret2').style.opacity = 0;
-    document.getElementById('content').style.opacity = 1;
-    document.getElementById('profile-img').style.opacity = 1;
+    document.getElementById('sticky-title').style.opacity = 0;
+    document.getElementById('content-grid').style.opacity = 1;
     document.getElementById('footer').style.opacity = 1;
+    setTimeout(function() {
+        document.getElementById('sticky-title').style.display = 'none';
+        // console.log("here");
+    },1100)
 }
 
 function blinkCursor() {
@@ -69,9 +75,8 @@ function clear_transitions() {
 
     document.getElementById('cursor').setAttribute("class","no-trans");
     document.getElementById('caret').setAttribute("class","no-trans");
-    document.getElementById('caret2').setAttribute("class","no-trans");
-    document.getElementById('content').setAttribute("class","no-trans");
-    document.getElementById('profile-img').setAttribute("class","no-trans");
+    //document.getElementById('caret2').setAttribute("class","no-trans");
+    document.getElementById('content-grid').setAttribute("class","no-trans");
     document.getElementById('footer').setAttribute("class","no-trans");
 }
 
@@ -84,21 +89,44 @@ function animate_website() {
             typeWriter(elem,0);
         },1500);
     };
+    try {
+        localStore.setItem('animationDate', (new Date()).toISOString());
+    } catch(err) {
+
+    }
+}
+
+function override_animations() {
+    try {
+        var dateStoredString = localStore.getItem('animationDate');
+        if(dateStoredString) {
+            try {
+                var dateStored = new Date(dateStoredString);
+                var now = new Date();
+                return (now-dateStored) <= 604800000;
+            } catch(err) {
+                return false;
+            }
+        }
+    } catch {
+        return false;
+    }
 }
 
 if(navType || navType === 0) {
     
     // Don't want transition animations when page is reached by pressing back/forward, bad ux.
-    if(navType === TYPE_BACK_FORWARD) {
+    if(navType === TYPE_BACK_FORWARD || override_animations()) {
         var elem = document.getElementById('terminal')
         elem.innerHTML = text[text.length-1]
         clear_transitions();
         loadEverything();
     }
     else {
-        animate_website();       
+        animate_website() 
     }
 } else {
     // don't know how we got here, let's animate 
     animate_website();
 }
+})();

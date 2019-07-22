@@ -1,22 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Tanuj Bhatia</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta charset="utf-8">
-    <style type="text/css">
-        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:500|Roboto+Slab:400,700');
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
-        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-    </style>
-    
-    {% for s in page.stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{{s}}">
-    {% endfor %}
+<html class="accent" lang="en">
+    <head>
+        <title>Tanuj Bhatia</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400|Roboto+Slab:300,400');
+            /*@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');*/
+            @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css')
+        </style>
+        
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        {% for s in page.stylesheets %}
+            <link rel="stylesheet" type="text/css" href="/{{s}}">
+        {% endfor %}
+        {% for s in layout.stylesheets %}
+            <link rel="stylesheet" type="text/css" href="/{{s}}">
+        {% endfor %}
+        <script type="text/javascript" src="/js/theme-selector.js" ></script>
 
-</head>
+        {% seo %}
+    </head>
 
-<body>
-{{content}}
-</body>
+    <body>
+        <div id="sticky-title" class="opacity-trans">
+            <div id="terminal-text">
+                <pre id="terminal"><span id="caret">></span> <span id="cursor">|</span>        </pre>
+            </div>
+        </div>
+        <div id="page-top"></div>
+        <div>
+            <section id="content-grid" class="opacity-trans">
+                <div class="grid-col left-grid-col">
+                    <div class="navbar">
+                        <div {% if page.navbar_position == "About" %} class="current-page" {% endif %}><a href="/">About</a></div>
+                        <div {% if layout.navbar_position == "Projects" %} class="current-page" {% endif %}><a href="/work">Work</a></div>
+                        <div {% if layout.navbar_position == "Blog" or page.navbar_position == "Blog"%} class="current-page" {% endif %}><a href="/blog">Blog</a></div>
+                    </div>
+                    <div>
+                        <div class="title-text mono">./tanuj</div>
+                    </div>
+                </div>
+                <div class="grid-col center-grid-col">
+                    {{content}}
+                </div>
+                <div class="grid-col right-grid-col"></div>
+            </section>
+        </div>
+
+        <div class="spacer"></div>
+        <footer id="footer" class="opacity-trans">
+            <div id="links">
+                <div class="flink beta">Site always in <em>β Stage</em><sup>TM</sup></div>
+                <div class="flink tooltip light-mode" onclick="setThemeLight()" data-tooltip-text="Light Theme"><i class="fa fa-sun"></i></div>
+                <div class="flink tooltip dark-mode" onclick="setThemeDark()" data-tooltip-text="Dark Theme"><i class="fa fa-moon" ></i></div>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="/js/animate.js" ></script>
+        {% for s in page.scripts %}
+            <script type="text/javascript" src="/{{s}}" ></script>
+        {% endfor %}
+        {% for s in layout.scripts %}
+            <script type="text/javascript" src="/{{s}}" ></script>
+        {% endfor %}
+    </body>
 </html> 
