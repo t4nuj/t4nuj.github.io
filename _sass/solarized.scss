@@ -22,6 +22,7 @@
         border-top: 0.08rem solid $rebase0;
     }
 }
+
 @mixin accentize($accent) {
     .tooltip:hover i, a:active *, a:hover * { color: $accent; }
     .current-page a {color: $accent;}
@@ -34,9 +35,9 @@
 }
 /* light is default mode, so pair with general html definition */
 
-html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03,$blue)}
+html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03, $blue)}
 .dark  { 
-    @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3,$purple);
+    @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3, $purple);
 }
 html * {
     color-profile: sRGB;
