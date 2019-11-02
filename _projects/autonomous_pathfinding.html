@@ -14,33 +14,35 @@ figcaption::before {
 }
 </style>
 
-<p class="mini"><em>Bachelor thesis project carried out during the final year of my studies at Delhi Technological University (with 3 other classmates). <a href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></p>
+<p class=""><em>Bachelor thesis project carried out during the final year of my studies at Delhi Technological University (with 3 other classmates). <a class="tooltip" href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></p>
 
 <h3>Motivation</h3>
 
-<p>The state of the art techniques for environment sensing and autonomous navigatoion uses <em>LIDAR</em> hardware with a <em>SLAM</em> (Simultaneous Localization And Mapping) algorithm. It is widely used in quad-copters and small vehicles.</p>
-<p>In this paper we explored the viablility of a camera based approach for navigation, without relying on expensive hardware.</p>
+<p>The state of the art techniques for environment sensing and autonomous navigation use <em>LIDAR</em> hardware with a <em>SLAM</em> (Simultaneous Localization And Mapping) algorithm. It is widely used in quad-copters and small vehicles.</p>
+<p>During this project we explored the viability of a camera based approach for navigation, without relying on expensive hardware.</p>
 <p>The motivation was two fold:
 <ol>
-<li>Humans <em>do not</em> have a specialized/precise hardware as <em>LIDAR</em> for sensing environment, we get by using eyes. Logically the robots we design should do so too.</li>
-<li>In comparison to cameras, LIDAR is expensive in terms of manufacturing as well as operation</li>
+<li>Humans <em>do not</em> have a specialized hardware like <em>LIDAR</em> for sensing our environment, we get by with our eyes. Logically the robots we design should do so too.</li>
+<li>In comparison to cameras, <em>LIDAR</em> is expensive in terms of manufacturing as well as operation</li>
 </ol>
 </p>
 
 <h3>Approach</h3>
 
-<p>We built on the idea to use a <em>CNN</em> to extract information from our scene and interface its output with a path planner. For a proof of concept scope, we decided to generate a scene depth map from the CNN, and use it for path planning.</p>
+<p>We had the basic idea to use a <em>CNN</em> (Convolutional Neural Network) to extract information from our scene and interface its output with a path planner. For a proof of concept scope, we decided to generate a scene depth map from the CNN, and use it for path planning.</p>
 
-<p>Testing our approach with actual vehicles was not viable due to financial constraints. Real world datasets available were not large enough to train a deep neural network, and making one would have been too expensive</p>
+<p>Testing our approach with actual vehicles was not viable due to financial reasons. Real world datasets available were not large enough to train a deep neural network, and making one would have been too expensive</p>
 
-<p>Due to these constraints we implemented our autonomous agent in a simulation (made in Python using <a class="tooltip" target="_blank" href="https://www.panda3d.org/">Panda3D</a>). We used <a target="_blank" class="tooltip" href="https://shapenet.org/">Shapenet</a> (3D object database) to artificially generate a dataset for scene depth estimation: </p>
+<p>Due to these constraints we implemented our autonomous agent in a simulation (made using <a class="tooltip" target="_blank" href="https://www.panda3d.org/">Panda3D</a>). We used <a target="_blank" class="tooltip" href="https://shapenet.org/">Shapenet</a> (3D object database) to artificially generate a dataset for scene depth estimation.  </p>
 
 <figure>
 <img src="/assets/dataset.png">
 <figcaption>Sample images from Dataset: Left Camera, Right Camera, and Scene Depth Ground Truth</figcaption>
 </figure>
 
-<p>Armed with our cheaply generated dataset, we trained a CNN. It accepted 2 images as input (Left & Right Cam) and produced a depth map of the scene in view.</p>
+<p>We selected stereo image input instead of mono, so that more information about scene depth reaches the network. (See: <a class="tooltip" href="https://en.wikipedia.org/wiki/Stereopsis" target="_blank">Stereopsis</a>)</p>
+
+<p>Armed with our cheaply generated dataset, we trained a <em>CNN</em> which produced a depth map of the scene in view given stereo input of a scene.</p>
 
 <figure>
 <img src="/assets/depthmap2.png">
