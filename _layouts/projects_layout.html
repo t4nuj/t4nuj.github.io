@@ -1,7 +1,19 @@
 ---
 layout: default
-stylesheets: ["css/projects.css"]
+stylesheets: ["css/projects.css", "css/blog.css"]
 navbar_position: "Projects"
 --- 
-
+{% if page.name != "projects_index.html" %}
+<div class="grid75">
+<h2 class="blog-title">{{page.title}}</h2>
+<p class="blog-date">{{page.pdate}}</p>
+<p class="blog-date"><a class="no-dec" href="/work">&lt; Back</a></p>
+<!-- <p class="blog-date"><- Back</p> -->
+{% endif %}
+<div class="blog-content">
 {{content}}
+</div>
+{% if page.name != "projects_index.html" %}
+<div class="blog-footer-wrapper"><span class="blog-footer">  <a class="no-dec" href="/work"> &lt; Back</a> | <a class="no-dec" onclick="scrollToElement('page-top');">Top</a></span></div>
+{% endif %}
+</div>

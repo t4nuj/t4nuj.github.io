@@ -1,0 +1,34 @@
+img {
+	display: block;
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+	object-position: center bottom;
+	max-height: 50vh;
+	filter: drop-shadow(0px 0px 2px rgba(0,0,0,.3));
+}
+
+body {
+	counter-reset: section;
+}
+
+figure {
+	counter-increment: figure;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 1.5rem;
+}
+
+figcaption {
+	font-size: 0.8em;
+	font-style: italic;
+	margin-top: 0.8rem;
+	text-align: center;
+}
+
+figcaption::before {
+	whitespace: pre;
+	font-style: italic;
+	font-weight: bold;
+}

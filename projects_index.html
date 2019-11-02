@@ -7,21 +7,40 @@ permalink: "/work"
 	<h2>Experience</h2>
 	{% for work in site.work %}
 		<div class="proj-container">
-			<p class="proj-title">{{work.company}}</p>
-			<p class="proj-date"><em>{{work.title}}</em></p>
-			<p class="proj-date"><em>{{work.tenure}}</em></p>
+			<div class="proj-title">{{work.company}}</div>
+			<div class="proj-date"><em>{{work.title}}</em></div>
+			<div class="proj-date"><em>{{work.tenure}}</em></div>
 			{{work.content}}
 		</div>
 	{% endfor %}
 </div>
 <div>
+	<script type="text/javascript">
+		function goToProject(event, proj_url) {
+			if(event.target.tagName !== 'A') {
+				window.location.href = proj_url;
+			}
+ 		}
+	</script>
 	<h2>Projects</h2>
-	{% for proj in site.projects %}
+	{% assign projs = site.projects | sort:"project_pos" %} 
+	{% for proj in projs %}
+		{% if proj.link_proj == true %}
+			<div class="proj-link read-more-container" onclick='goToProject(event, "{{proj.url}}")'>
+		{% endif %}
 		<div class="proj-container">
-			<p class="proj-title">{{proj.title}}</p>
-			<p class="proj-date"><em>{{proj.pdate}}</em></p>
-			<p class="proj-desc">{{proj.desc}}</p>
+			<div class="proj-title">{{proj.title}} <span class="read-more">&nbsp; More &gt;</span></div>
+			<div class="proj-date"><em>{{proj.pdate}}</em></div>
+			<div class="proj-desc">{{proj.desc}}
+				{% if proj.link_proj == true %}
+					<span class="read-more-mobile">More &gt;</span>
+				{% endif %}
+			</div>
 		</div>
+		{% if proj.link_proj == true %}
+			
+			</div>
+		{% endif %}
 	{% endfor %}
 </div>
 </div>

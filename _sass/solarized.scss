@@ -32,6 +32,11 @@
     .proj-title {
       color: $accent;
     }
+    .read-more, .read-more-mobile {color: $accent}
+
+    .blog-container-inner:hover .blog-title {
+        color: $accent;
+    }
 }
 /* light is default mode, so pair with general html definition */
 

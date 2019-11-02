@@ -3,6 +3,8 @@
 @import 'navbar';
 @import 'footer';
 @import 'tooltip';
+@import 'figures';
+@import 'read-more';
 
 html, body {
   margin: 0;
@@ -95,4 +97,11 @@ a:hover {
     opacity: 1;
     transition: opacity 0.4s ease-in;
     -webkit-transition: opacity 0.4s ease-in;
+}
+
+.grid50 {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 4%;
+  align-items: end;
 }

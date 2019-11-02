@@ -3,12 +3,9 @@
 
 @import 'variables';
 
-.proj-container + .proj-container {
-	margin-top: 2rem;
-}
 
-p {
-  margin: 0;
+.proj-container {
+	margin-bottom: 2rem;
 }
 
 .proj-date {
@@ -39,11 +36,8 @@ li + li {
 }
 
 
-.proj-desc,ul {
+.proj-desc, ul {
 	margin-top: 0.75rem;
 	font-size: 0.9rem;
-}
-
-.proj-title {
-    font-weight: normal;
+    line-height: 1.5rem;
 }
