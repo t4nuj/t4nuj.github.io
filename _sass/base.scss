@@ -73,7 +73,7 @@ pre, .mono-font {
 }
 
 @media (orientation: landscape) and (min-width: 1024px) {
-    .grid75 {
+  .grid75 {
     width: 65%;
   }
 }
@@ -101,7 +101,13 @@ a:hover {
 
 .grid50 {
   display: grid;
-  grid-template-columns: 48% 48%;
-  grid-gap: 4%;
+  grid-template-columns: 1fr;
   align-items: end;
+}
+
+@media screen and (min-width: 600px) {
+  .grid50 {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4%;
+  }
 }
