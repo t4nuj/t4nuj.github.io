@@ -1,0 +1,54 @@
+---
+layout: projects_layout
+desc: ""
+link_proj: true
+title: "Deep Learning for playing Video Games (Academic)"
+desc: "Academic project, to train an agent to play Flappy Bird."
+pdate: "Aug, 2016 - Dec, 17"
+project_pos: 2
+---
+<style type="text/css">
+
+figcaption::before {
+	content: "Figure " counter(figure) ". ";
+}
+</style>
+
+<p class=""><em>Academic project carried out with Dr. Akshi Kumar during junior year at Delhi Technological University.</em></p>
+
+<h3>Motivation</h3>
+
+<p>As my 2nd year ended, I had gained skills in app development, algorithms & data structures and more. I wanted to explore machine learning next.</p>
+
+<p>As I explored the field, I came across Deepmind's (Google) paper <em>'Playing Atari with Deep Reinforcement Learning'</em>. They used Deep Neural Nets to play multiple video games. It was fascinating because the same algorithm could play multiple games.</p>
+
+<p>I decided to replicate this paper as part of my academic project, and compare it with other reinforcement learning algorithms.</p>
+
+<h3>Project</h3>
+
+<p>I selected Flappy Bird as the game to evaluate the algorithms on. Falppy bird hype had begun to dwindle by 2015. But, I was still obsessed as I had recently made a flappy bird clone for Github's Game Jam.</p>
+
+<figure>
+  <img src="/assets/flappy-model.png">
+  <figcaption>Modelling the game as an MDP for Q learning</figcaption>
+</figure>
+
+<p>Modelling the game is straightforward: </p>
+<ul class="dash less-space normal-font left-margin">
+<li> The screen of the game can be modelled as a 2 dimensional grid, with bird at position (x,y) and velocity (vx,vy).
+<li> The pipe openings can are at x1,y1.
+<li> The objective of the game is to avoid collisions with the pipe and the ground.
+<li> The agent only has two options to tap or not tap. Depending on this the state of the game changes.
+<li> The gravity is constantly changing the game state by pulling the bird downwards.
+</ul>
+
+<p>Using these parameters we can model the game as a Markov decision process, and use Q learning (dynamic programming/ table approach) to learn the best possible move (tap or not tap) at each state of the game. The policy or the Q function table can also be approximated with a neural network which takes the game state as input and outputs the best move.</p>
+
+<p>On the other hand, in Deepmind's approach, modelling is not needed. The deep neural net takes the some number of video frames as input to predict the action required (Previous frames are needed to set context on the velocity of the bird).</p>
+
+<figure>
+  <img src="/assets/agent-demo.gif">
+<figcaption>The agents in action</figcaption>
+</figure>
+
+<p>As part of this project I also made a contribution to <a href="https://github.com/DanielSlater/PyGamePlayer" class="tooltip" target="_blank">PyGamePlayer</a> an open source library to create game playing agents for games built using PyGame framework.</p>

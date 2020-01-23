@@ -2,7 +2,7 @@
 layout: projects_layout
 desc: ""
 link_proj: true
-title: "Autonomous Pathfinding in Simulated Environment"
+title: "Autonomous Pathfinding in Simulated Environment (Publication)"
 desc: "Autonomous Pathfinding in a simulated game engine environment. Designed an algorithm which used in-game stereo camera input and Deep Learning based depth estimation technique for obstacle detection and navigation. <a class=\"tooltip\" href=\"https://dl.acm.org/citation.cfm?id=3175621\" target=\"_blank\">[Published at ICRAI, 2017]</a>"
 pdate: "Aug, 2016 - Dec, 17"
 project_pos: 1
@@ -14,11 +14,11 @@ figcaption::before {
 }
 </style>
 
-<p class=""><em>Bachelor thesis project carried out during the final year of my studies at Delhi Technological University (with 3 other classmates). <a class="tooltip" href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></p>
+<p class=""><em>Bachelor thesis project carried out with Dr. O.P. Verma during the final year of my studies at Delhi Technological University (with 3 other classmates). <a class="tooltip" href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></a></em></p>
 
 <h3>Motivation</h3>
 
-<p>The state of the art techniques for environment sensing and autonomous navigation use <em>LIDAR</em> hardware with a <em>SLAM</em> (Simultaneous Localization And Mapping) algorithm. It is widely used in quad-copters and small vehicles.</p>
+<p></p>
 <p>During this project we explored the viability of a camera based approach for navigation, without relying on expensive hardware.</p>
 <p>The motivation was two fold:
 <ol>
@@ -47,8 +47,9 @@ figcaption::before {
 <figure>
 <img src="/assets/depthmap2.png">
 <figcaption>Performance of the CNN on the depth estimation task</figcaption>
+</figure>
 
-<p>For the last part we used the CNN on the in game camera footage for obstacle detection and avoidance. We evaluated our agent on different heuristics for pathfinding and baselined it with human performance on same task.</p>
+<p>For the last part we used the CNN on the in game camera footage for obstacle detection and avoidance. If depth of the scene in front of the agent was more than a certain threshhold, the path was deemed unsafe. We evaluated our agent on different heuristics for pathfinding and baselined it with human performance on same task.</p>
 
 <figure>
 <div class="grid50">
@@ -60,4 +61,4 @@ figcaption::before {
 
 <p>We were able to demonstrate that navigation without using specialized hardware could be possible with applications in small robots and vehicles. However, using heuristics in real world scenarios would not scale well. Thus, integrating the CNN with a SLAM algorithm would be the next step to test out this approach in actual vehicles.</p>
 
-<p>Our paper regarding this project was accepted at <em>International Conference on Robotics and Artificial Intelligence</em> and published in December 2017.</p>
+<p>Our paper regarding this project was accepted at <em>International Conference on Robotics and Artificial Intelligence</em> and published in December 2017. Check out our code <a href="https://github.com/t4nuj/3d-pathfinding" class="tooltip" target="_blank">here</a>.</p>

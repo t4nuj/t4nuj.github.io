@@ -5,6 +5,7 @@
 @import 'tooltip';
 @import 'figures';
 @import 'read-more';
+@import 'fonts';
 
 html, body {
   margin: 0;
@@ -37,13 +38,7 @@ body  {
 }
 
 pre, .mono-font {
-    font-family: 'Roboto Mono',monospace;
     margin: 0;
-}
-
-.mono-font * {
-  font-family: 'Roboto Mono',monospace;
-  font-weight: lighter;
 }
 
 #content-grid {

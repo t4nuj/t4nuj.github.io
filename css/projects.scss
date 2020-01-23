@@ -35,9 +35,25 @@ li + li {
 	margin-top: 0.75em;
 }
 
+.less-space li + li {
+    margin-top: unset;
+}
+
 
 .proj-desc, ul {
 	margin-top: 0.75rem;
 	font-size: 0.9rem;
     line-height: 1.5rem;
+}
+
+ul.less-space {
+    margin-top: -1rem;
+}
+
+ul.left-margin {
+    margin-left: 1rem;
+}
+
+ul.normal-font {
+    font-size: 1rem;
 }
