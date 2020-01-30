@@ -3,7 +3,7 @@ layout: projects_layout
 desc: ""
 link_proj: true
 title: "Autonomous Pathfinding in Simulated Environment (Publication)"
-desc: "Autonomous Pathfinding in a simulated game engine environment. Designed an algorithm which used in-game stereo camera input and Deep Learning based depth estimation technique for obstacle detection and navigation. <a class=\"tooltip\" href=\"https://dl.acm.org/citation.cfm?id=3175621\" target=\"_blank\">[Published at ICRAI, 2017]</a>"
+desc: "Autonomous Pathfinding in a simulated game engine environment. Designed an algorithm which used in-game stereo camera input and Deep Learning based depth estimation technique for obstacle detection and navigation. [Published at International Conference on Artificial Intelligence and Robotics, 2017]"
 pdate: "Aug, 2016 - Dec, 17"
 project_pos: 1
 ---
@@ -14,7 +14,7 @@ figcaption::before {
 }
 </style>
 
-<p class=""><em>Bachelor thesis project carried out with Dr. O.P. Verma during the final year of my studies at Delhi Technological University (with 3 other classmates). <a class="tooltip" href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></a></em></p>
+<p class="summary"><em>Bachelor thesis project carried out with Dr. O.P. Verma during the final year of my studies at Delhi Technological University (with 3 other classmates). <a class="tooltip" href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></a></em></p>
 
 <h3>Motivation</h3>
 
@@ -29,28 +29,28 @@ figcaption::before {
 
 <h3>Approach</h3>
 
-<p>We had the basic idea to use a <em>CNN</em> (Convolutional Neural Network) to extract information from our scene and interface its output with a path planner. For a proof of concept scope, we decided to generate a scene depth map from the CNN, and use it for path planning.</p>
+<p>We had the basic idea to use a <em>CNN</em> (Convolutional Neural Network) to extract information from our scene and interface its output with a path planner. For the project's scope, we decided to generate a scene depth map from the CNN, and use it for path planning.</p>
 
-<p>Testing our approach with actual vehicles was not viable due to financial reasons. Real world datasets available were not large enough to train a deep neural network, and making one would have been too expensive</p>
+<p>Testing our approach with actual vehicles was not viable due to financial & safety reasons. Real world datasets available were not large enough to train a deep neural network, and making one would have been too expensive</p>
 
-<p>Due to these constraints we implemented our autonomous agent in a simulation (made using <a class="tooltip" target="_blank" href="https://www.panda3d.org/">Panda3D</a>). We used <a target="_blank" class="tooltip" href="https://shapenet.org/">Shapenet</a> (3D object database) to artificially generate a dataset for scene depth estimation.  </p>
+<p>Due to these constraints we implemented our autonomous agent in a simulation (made using <a class="tooltip" target="_blank" href="https://www.panda3d.org/">Panda3D</a>). We used <a target="_blank" class="tooltip" href="https://shapenet.org/">Shapenet</a> (3D object database) for obstacles in the environment.  </p>
 
+<h3> Scene Depth Estimation </h3>
 <figure>
 <img src="/assets/dataset.png">
 <figcaption>Sample images from Dataset: Left Camera, Right Camera, and Scene Depth Ground Truth</figcaption>
 </figure>
 
-<p>We selected stereo image input instead of mono, so that more information about scene depth reaches the network. (See: <a class="tooltip" href="https://en.wikipedia.org/wiki/Stereopsis" target="_blank">Stereopsis</a>)</p>
-
-<p>Armed with our cheaply generated dataset, we trained a <em>CNN</em> which produced a depth map of the scene in view given stereo input.</p>
+<p>We used Shapenet to artificially generate a dataset for scene depth estimation. We selected stereo image input instead of mono, so that more information about scene depth reaches the network. (See: <a class="tooltip" href="https://en.wikipedia.org/wiki/Stereopsis" target="_blank">Stereopsis</a>)</p>
 
 <figure>
 <img src="/assets/depthmap2.png">
 <figcaption>Performance of the CNN on the depth estimation task</figcaption>
 </figure>
 
-<p>For the last part we used the CNN on the in game camera footage for obstacle detection and avoidance. If depth of the scene in front of the agent was more than a certain threshhold, the path was deemed unsafe. We evaluated our agent on different heuristics for pathfinding and baselined it with human performance on same task.</p>
+<p>Armed with our cheaply generated dataset, we trained a <em>CNN</em> which produced a depth map of the scene in view given stereo input.</p>
 
+<h3>Path Planning</h3>
 <figure>
 <div class="grid50">
 <img src="/assets/environment.png">
@@ -59,6 +59,15 @@ figcaption::before {
 <figcaption>Our environment simulation and agent in action</figcaption>
 </figure>
 
+<p>The path planner discretized the environment into 1x1 blocks and used A* algorithm to search for the destination block. Moves allowed for the agent: move forward by 1 cube and rotate by 45 degrees.</p>
+
+<p>For short term path planning (going to the next cube) we used the CNN on the in game camera footage for obstacle detection. If depth of the scene in front of the agent was more than a certain threshhold, the path was deemed unsafe.</p>
+
+<p>We evaluated our agent on different A* heuristics for pathfinding and baselined it with human performance on same task.</p>
+
+<h3>Conclusion & Next Steps</h3>
 <p>We were able to demonstrate that navigation without using specialized hardware could be possible with applications in small robots and vehicles. However, using heuristics in real world scenarios would not scale well. Thus, integrating the CNN with a SLAM algorithm would be the next step to test out this approach in actual vehicles.</p>
 
-<p>Our paper regarding this project was accepted at <em>International Conference on Robotics and Artificial Intelligence</em> and published in December 2017. Check out our code <a href="https://github.com/t4nuj/3d-pathfinding" class="tooltip" target="_blank">here</a>.</p>
+<p>Our CNN did not understand higher level constructs like objects, it was only trained on the low level task of estimating pixel depth. An approach to train the network for the end to end navigation task wtihout a path planning algorithms, is another future direction of this reseach.</p>
+
+<p>Our paper regarding this project was accepted at <em>International Conference on Robotics and Artificial Intelligence</em> and published in December 2017. Check out our code <a href="https://github.com/t4nuj/simulated-pathfinder" class="tooltip" target="_blank">here</a>.</p>

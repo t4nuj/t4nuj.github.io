@@ -25,22 +25,21 @@ permalink: "/work"
 	<h2>Projects</h2>
 	{% assign projs = site.projects | sort:"project_pos" %} 
 	{% for proj in projs %}
-		{% if proj.link_proj == true %}
-			<div class="proj-link read-more-container" onclick='goToProject(event, "{{proj.url}}")'>
-		{% endif %}
+
 		<div class="proj-container">
-			<div class="proj-title">{{proj.title}} <span class="read-more">&nbsp; More &gt;</span></div>
+			<div class="proj-title">{{proj.title}}
+				{% if proj.link_proj == true %}
+					<a class="read-more-link" href="{{proj.url}}">[Read More]</a>
+				{% endif %}
+			</div>
 			<div class="proj-date"><em>{{proj.pdate}}</em></div>
 			<div class="proj-desc">{{proj.desc}}
 				{% if proj.link_proj == true %}
-					<span class="read-more-mobile">More &gt;</span>
+					<a class="read-more-link-mobile" href="{{proj.url}}">[Read More]</a>
 				{% endif %}
 			</div>
 		</div>
-		{% if proj.link_proj == true %}
-			
-			</div>
-		{% endif %}
+
 	{% endfor %}
 </div>
 </div>

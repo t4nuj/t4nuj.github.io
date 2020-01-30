@@ -22,7 +22,11 @@
 		display: none;
 	}
 
-	.read-more-mobile {
+	.read-more-link {
+		display: none;
+	}
+
+	.read-more-mobile, .read-more-link-mobile  {
 		display: inline;
 		float: right;
 	}
@@ -34,7 +38,7 @@
 		-webkit-opacity: 1;
 	}
 
-	.read-more-mobile {
+	.read-more-mobile, .read-more-link-mobile {
 		display: none;
 	}
 }
