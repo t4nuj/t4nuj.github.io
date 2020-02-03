@@ -14,7 +14,7 @@ figcaption::before {
 }
 </style>
 
-<p class="summary"><em>Bachelor thesis project carried out with Dr. O.P. Verma during the final year of my studies at Delhi Technological University (with 3 other classmates). <a class="tooltip" href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></a></em></p>
+<p class="summary"><em>Bachelor project carried out with Dr. O.P. Verma during the final year of my studies at Delhi Technological University (with 3 other classmates). <a class="tooltip" href="https://dl.acm.org/citation.cfm?id=3175621" target="_blank">Published at ICRAI, 2017</a></em></a></em></p>
 
 <h3>Motivation</h3>
 
@@ -56,14 +56,14 @@ figcaption::before {
 <img src="/assets/environment.png">
 <img src="/assets/godview.png">
 </div>
-<figcaption>Our environment simulation and agent in action</figcaption>
+<figcaption>Our environment simulation and agent in action. The agent did not have access to Camera 0, that was only for our observation. The agent "saw" throught the left and right cameras, which were interfaced with the CNN. At all times the agent new which block it was at, and the coordinates of the destination block.</figcaption>
 </figure>
 
 <p>The path planner discretized the environment into 1x1 blocks and used A* algorithm to search for the destination block. Moves allowed for the agent: move forward by 1 cube and rotate by 45 degrees.</p>
 
-<p>For short term path planning (going to the next cube) we used the CNN on the in game camera footage for obstacle detection. If depth of the scene in front of the agent was more than a certain threshhold, the path was deemed unsafe.</p>
+<p>For short term path planning (going to the next cube) we used the CNN on the in game camera input for obstacle detection. If depth of the scene in front of the agent was less than a certain threshhold, the path was deemed unsafe.</p>
 
-<p>We evaluated our agent on different A* heuristics for pathfinding and baselined it with human performance on same task.</p>
+<p>We evaluated our agent on different A* heuristics for pathfinding and baselined it with human performance on same task. For humans, the overview camera was hidden and they were presented with a direction prompt about the destination block, as well as a marker on the desination.</p>
 
 <h3>Conclusion & Next Steps</h3>
 <p>We were able to demonstrate that navigation without using specialized hardware could be possible with applications in small robots and vehicles. However, using heuristics in real world scenarios would not scale well. Thus, integrating the CNN with a SLAM algorithm would be the next step to test out this approach in actual vehicles.</p>
