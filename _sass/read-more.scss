@@ -1,44 +1,8 @@
-@import 'variables';
+.read-more-link {
+	margin-top: 0.5rem;
+	display: block;
+}
 
-.read-more-container:hover {
+.read-more-container {
 	cursor: pointer;
-}
-
-.read-more, .read-more-mobile {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 1rem;
-}
-
-.read-more {
-	opacity: 0;
-    transition: opacity $trans-time ease-in;
-    -webkit-opacity: 0;
-    -webkit-transition: opacity $trans-time ease-in;
-}
-
-@media screen and (max-width: 600px) {
-	.read-more {
-		display: none;
-	}
-
-	.read-more-link {
-		display: none;
-	}
-
-	.read-more-mobile, .read-more-link-mobile  {
-		display: inline;
-		float: right;
-	}
-}
-
-@media screen and (min-width: 600px) {
-	.read-more-container:hover .read-more{
-		opacity: 1;
-		-webkit-opacity: 1;
-	}
-
-	.read-more-mobile, .read-more-link-mobile {
-		display: none;
-	}
 }

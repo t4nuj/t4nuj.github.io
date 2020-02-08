@@ -29,15 +29,15 @@ permalink: "/work"
 		<div class="proj-container">
 			<div class="proj-title">{{proj.title}}
 				{% if proj.link_proj == true %}
-					<a class="read-more-link" href="{{proj.url}}">[Read More]</a>
+					<!-- <a class="read-more-link" href="{{proj.url}}">[Read More]</a> -->
 				{% endif %}
 			</div>
 			<div class="proj-date"><em>{{proj.pdate}}</em></div>
 			<div class="proj-desc">{{proj.desc}}
-				{% if proj.link_proj == true %}
-					<a class="read-more-link-mobile" href="{{proj.url}}">[Read More]</a>
-				{% endif %}
 			</div>
+			{% if proj.link_proj == true %}
+					<a class="read-more-link" href="{{proj.url}}">Read More ></a>
+			{% endif %}
 		</div>
 
 	{% endfor %}

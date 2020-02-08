@@ -6,9 +6,10 @@ permalink: "/blog"
 {% for post in site.blog_posts %}
 		<div class="blog-container">
 			<div class="blog-container-inner read-more-container"  onclick="window.location.href = '{{post.url}}';">
-				<h3 class="blog-title">{{post.title}} <span class="read-more">&nbsp; Read &gt;</span></h3>
+				<h3 class="blog-title">{{post.title}} <!-- <span class="read-more">&nbsp; Read &gt;</span> --></h3>
 				<div class="blog-date"><em>{{post.pdate}}</em></div>
-				<div class="blog-desc">{{post.desc}} <span class="read-more-mobile">Read &gt;</span></div>
+				<div class="blog-desc">{{post.desc}} <!-- <span class="read-more-mobile">Read &gt;</span> --></div>
+				<a class="read-more-link" href="{{post.url}}">Read ></a>
 			</div>
 		</div>
 {% endfor %}
