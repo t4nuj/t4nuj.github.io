@@ -3,7 +3,7 @@
 }
 
 html {
-  	font-family: 'IBM Plex Serif', Helvetica, sans-serif;
+  	font-family: 'Faustina', 'Georgia', 'Times New Roman', serif;
   	font-weight: 400;
 }
 
@@ -21,10 +21,13 @@ pre, .mono-font {
 }
 
 h2, .proj-title, .proj-date, .blog-date, h3, .read-more, .read-more-mobile, .summary  {
-	font-family: 'Roboto', Helvetica, sans-serif;
+	font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
-h1,h2,h3,h4,h5 {
+h1, h2 {
+  font-weight: 600;
+}
+h3,h4,h5 {
 	font-weight: 400;
 }
 
