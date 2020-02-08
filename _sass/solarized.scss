@@ -25,16 +25,25 @@
 
 @mixin accentize($accent) {
     .tooltip:hover i, a:active *, a:hover * { color: $accent; }
+    
     .current-page a {color: $accent;}
+    
     .navbar, .navbar>div{ border-bottom-color: $accent }
+    
     #cursor {color: $accent}
+    
     .navbar a:hover, a.no-dec:hover {color: $accent}
+    
     .proj-title {
       color: $accent;
     }
     .read-more, .read-more-mobile {color: $accent}
 
     .blog-container-inner:hover .blog-title {
+        color: $accent;
+    }
+
+    a.read-more-link {
         color: $accent;
     }
 }
