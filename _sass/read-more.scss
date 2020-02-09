@@ -1,9 +1,18 @@
 .read-more-link {
 	margin-top: 0.5rem;
 	display: block;
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 .read-more-container {
 	cursor: pointer;
+}
+
+.read-more-container .read-more-link span {
+	display: inline-block;
+	transition: transform 0.3s;
+}
+
+.read-more-container:hover .read-more-link span {
+	transform: translate(100%);
 }

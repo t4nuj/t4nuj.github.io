@@ -26,7 +26,7 @@ permalink: "/work"
 	{% assign projs = site.projects | sort:"project_pos" %} 
 	{% for proj in projs %}
 
-		<div class="proj-container">
+		<div class="proj-container {% if proj.link_proj == true %}read-more-container{% endif %}">
 			<div class="proj-title">{{proj.title}}
 				{% if proj.link_proj == true %}
 					<!-- <a class="read-more-link" href="{{proj.url}}">[Read More]</a> -->
@@ -36,7 +36,7 @@ permalink: "/work"
 			<div class="proj-desc">{{proj.desc}}
 			</div>
 			{% if proj.link_proj == true %}
-					<a class="read-more-link" href="{{proj.url}}">Read More ></a>
+					<a class="read-more-link" href="{{proj.url}}">Read More <span>></span></a>
 			{% endif %}
 		</div>
 

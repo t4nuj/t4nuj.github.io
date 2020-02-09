@@ -39,11 +39,11 @@
     }
     .read-more, .read-more-mobile {color: $accent}
 
-    .blog-container-inner:hover .blog-title {
+    .blog-container-inner .blog-title {
         color: $accent;
     }
 
-    a.read-more-link {
+    a.read-more-link, a.read-more-link * {
         color: $accent;
     }
 }
