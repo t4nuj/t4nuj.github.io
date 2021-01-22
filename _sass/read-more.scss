@@ -8,11 +8,11 @@
 	cursor: pointer;
 }
 
-.read-more-container .read-more-link span {
+.read-more-link span {
 	display: inline-block;
 	transition: transform 0.3s;
 }
 
-.read-more-container:hover .read-more-link span {
+.read-more-container:hover .read-more-link span, .read-more-container:hover.read-more-link span {
 	transform: translate(100%);
 }

@@ -4,46 +4,46 @@ permalink: "/work"
 --- 
 <div class="grid75">
 <div>
-	<h2>Experience</h2>
-	{% for work in site.work %}
-		<div class="proj-container">
-			<div class="proj-title">{{work.company}}</div>
-			<div class="proj-date"><em>{{work.title}}</em></div>
-			<div class="proj-date"><em>{{work.tenure}}</em></div>
-			{{work.content}}
-		</div>
-	{% endfor %}
+    <h2>Experience</h2>
+    {% for work in site.work %}
+        <div class="proj-container">
+            <div class="proj-title">{{work.company}}</div>
+            <div class="proj-date"><em>{{work.title}}</em></div>
+            <div class="proj-date"><em>{{work.tenure}}</em></div>
+            {{work.content}}
+        </div>
+    {% endfor %}
 </div>
 <div>
-	<script type="text/javascript">
-		function goToProject(event, proj_url) {
-			if(event.target.tagName !== 'A') {
-				window.location.href = proj_url;
-			}
- 		}
-	</script>
-	<h2>Projects</h2>
-	{% assign projs = site.projects | sort:"project_pos" %} 
-	{% for proj in projs %}
+    <script type="text/javascript">
+        function goToProject(event, proj_url) {
+            if(event.target.tagName !== 'A') {
+                window.location.href = proj_url;
+            }
+        }
+    </script>
+    <h2>Projects</h2>
+    {% assign projs = site.projects | sort:"project_pos" %} 
+    {% for proj in projs %}
+<!--        {% if proj.link_proj == true %}
+                onclick="window.location.href = '{{proj.url}}';"
+            {% endif %} -->
+        <div class="proj-container" 
+            
+            >
+            <div class="proj-title">{{proj.title}}
+                {% if proj.link_proj == true %}
+                    <!-- <a class="read-more-link" href="{{proj.url}}">[Read More]</a> -->
+                {% endif %}
+            </div>
+            <div class="proj-date"><em>{{proj.pdate}}</em></div>
+            <div class="proj-desc">{{proj.desc}}
+            </div>
+            {% if proj.link_proj == true %}
+                    <a class="read-more-link {% if proj.link_proj == true %}read-more-container{% endif %}" href="{{proj.url}}">Read More <span>></span></a>
+            {% endif %}
+        </div>
 
-		<div class="proj-container {% if proj.link_proj == true %}read-more-container{% endif %}" 
-			{% if proj.link_proj == true %}
-				onclick="window.location.href = '{{proj.url}}';"
-			{% endif %}
-			>
-			<div class="proj-title">{{proj.title}}
-				{% if proj.link_proj == true %}
-					<!-- <a class="read-more-link" href="{{proj.url}}">[Read More]</a> -->
-				{% endif %}
-			</div>
-			<div class="proj-date"><em>{{proj.pdate}}</em></div>
-			<div class="proj-desc">{{proj.desc}}
-			</div>
-			{% if proj.link_proj == true %}
-					<a class="read-more-link" href="{{proj.url}}">Read More <span>></span></a>
-			{% endif %}
-		</div>
-
-	{% endfor %}
+    {% endfor %}
 </div>
 </div>
