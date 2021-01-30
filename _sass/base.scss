@@ -26,7 +26,7 @@ body  {
 }
 
 .spacer {
-    flex: 1;
+    flex: 2vh 1 2;
 }
 
 .center-text {
@@ -52,6 +52,12 @@ pre, .mono-font {
 @media screen and (min-width: 700px) {
     #content-grid {
       width: 70vw;
+  }
+}
+
+@media screen and (min-aspect-ratio: 2/1) {
+    #content-grid {
+      width: 50vw;
   }
 }
 
