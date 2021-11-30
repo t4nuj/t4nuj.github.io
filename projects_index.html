@@ -5,7 +5,8 @@ permalink: "/work"
 <div class="grid75">
 <div>
     <h2>Experience</h2>
-    {% for work in site.work %}
+    {% assign works = site.work | sort:"work_pos" | reverse %} 
+    {% for work in works %}
         <div class="proj-container">
             <div class="proj-title">{{work.company}}</div>
             <div class="proj-date"><em>{{work.title}}</em></div>
