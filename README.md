@@ -9,12 +9,13 @@ rbenv install -l # list versions that can be installed
 
 ## Install dependencies using bundler
 Note don't update the gh pages plugin it fails the build.
+
 ```
-bundler update
+bundler install
 ```
 
 ## Run jekyll
-
+This should start jekyll
 ```
 bundle exec jekyll serve
 ```
