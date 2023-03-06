@@ -23,7 +23,7 @@
     }
 }
 
-@mixin accentize($accent) {
+@mixin accentize($accent, $read_more) {
     .tooltip:hover i, a:active *, a:hover * { color: $accent; }
     
     .current-page a {color: $accent;}
@@ -37,14 +37,14 @@
     .proj-title {
       color: $accent;
     }
-    .read-more, .read-more-mobile {color: $accent}
+    .read-more, .read-more-mobile {color: $read_more}
 
     .blog-container-inner .blog-title {
         color: $accent;
     }
 
     a.read-more-link, a.read-more-link * {
-        color: $accent;
+        color: $read_more;
     }
 }
 /* light is default mode, so pair with general html definition */
@@ -59,9 +59,9 @@ html * {
 }
 
 .accent {
-	@include accentize($light-accent)
+	@include accentize($light-accent, $blue)
 }
 
 .accent.dark {
-  @include accentize($dark-accent)
+  @include accentize($dark-accent, $purple)
 }

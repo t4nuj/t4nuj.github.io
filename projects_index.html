@@ -9,8 +9,7 @@ permalink: "/work"
     {% for work in works %}
         <div class="proj-container">
             <div class="proj-title">{{work.company}}</div>
-            <div class="proj-date"><em>{{work.title}}</em></div>
-            <div class="proj-date"><em>{{work.tenure}}</em></div>
+            <div class="proj-date"><em>{{work.title_tenure}}</em></div>
             {{work.content}}
         </div>
     {% endfor %}
