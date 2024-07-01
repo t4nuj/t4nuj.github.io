@@ -2,10 +2,10 @@
 layout: blog_layout
 permalink: "/blog"
 ---
-<h2>Posts</h2>
+	<!-- <h2>Posts</h2> -->
 {% assign posts = site.blog_posts | sort:"iso_date" %} 
 {% for post in posts reversed %}
-		<div class="blog-container">
+		<div class="blog-container" id="{{post.title_id}}">
 			<div class="blog-container-inner read-more-container"  onclick="window.location.href = '{{post.url}}';">
 				<h3 class="blog-title">{{post.title}} <!-- <span class="read-more">&nbsp; Read &gt;</span> --></h3>
 				<div class="blog-date"><em>{{post.pdate}}</em></div>

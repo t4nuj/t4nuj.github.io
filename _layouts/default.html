@@ -16,6 +16,18 @@
             <link rel="stylesheet" type="text/css" href="/{{s}}">
         {% endfor %}
         <script type="text/javascript" src="/js/theme-selector.js" ></script>
+        {% for p in site.pages %}
+            <link rel="prefetch" href="{{p.url}}" />
+        {% endfor %}
+        {% for p in site.blog_posts %}
+            <link rel="prefetch" href="{{p.url}}" />
+        {% endfor %}
+        {% for p in site.projects %}
+            {% if proj.link_proj == true %}
+                <link rel="prefetch" href="{{p.url}}" />
+            {% endif %}
+        {% endfor %}
+        <link rel="icon" href="/assets/favicon.ico">
 
         {% seo %}
     </head>
@@ -29,7 +41,7 @@
         <div id="page-top"></div>
         <div>
             <section id="content-grid" class="opacity-trans">
-                <div class="grid-col left-grid-col">
+                <div class="grid-col left-grid-col" id="navbar-col">
                     <div class="navbar">
                         <div {% if page.navbar_position == "About" %} class="current-page" {% endif %}><a href="/">About</a></div>
                         <div {% if layout.navbar_position == "Projects" %} class="current-page" {% endif %}><a href="/work">Work</a></div>

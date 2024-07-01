@@ -116,3 +116,59 @@ a:hover {
 a.read-more-container {
   font-color: inherit;
 }
+
+@view-transition {
+  navigation: auto
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(30px); }
+}
+
+@keyframes slide-to-left {
+  to { transform: translateX(-30px); }
+}
+
+::view-transition-old(root) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(root) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+/* Entry transition */
+::view-transition-new(navbar):only-child {
+  animation: 300ms cubic-bezier(0, 0, 0.2, 1) both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-top;
+}
+
+::view-transition-old(blog-title) {
+  /* Prevent the default animation,
+  so both views remain opacity:1 throughout the transition*/
+  animation: none;
+  opacity: 0;
+  /* Use normal blending,
+  so the new view sits on top and obscures the old view */
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(blog-title) {
+  /* Prevent the default animation,
+  so both views remain opacity:1 throughout the transition*/
+  animation: none;
+  opacity: 1;
+  /* Use normal blending,
+  so the new view sits on top and obscures the old view */
+  mix-blend-mode: normal;
+}

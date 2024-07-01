@@ -58,6 +58,10 @@ $navbar-bottom-width: 0.18rem;
   margin-bottom: 1rem;
 }
 
+#navbar-col {
+  view-transition-name: navbar;
+}
+
 @media (min-width: 200px) {
     .navbar {
             border-bottom-width: 0px;

@@ -28,14 +28,8 @@ permalink: "/work"
 <!--        {% if proj.link_proj == true %}
                 onclick="window.location.href = '{{proj.url}}';"
             {% endif %} -->
-        <div class="proj-container" 
-            
-            >
-            <div class="proj-title">{{proj.title}}
-                {% if proj.link_proj == true %}
-                    <!-- <a class="read-more-link" href="{{proj.url}}">[Read More]</a> -->
-                {% endif %}
-            </div>
+        <div class="proj-container">
+            <div class="proj-title" id="{{proj.title_id}}">{{proj.title}}</div>
             <div class="proj-date"><em>{{proj.pdate}}</em></div>
             <div class="proj-desc">{{proj.desc}}
             </div>
