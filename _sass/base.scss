@@ -89,15 +89,15 @@ a:hover {
 
 .opacity-trans {
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.15s ease-in;
     -webkit-opacity: 0;
-    -webkit-transition: opacity 1s ease-in;
+    -webkit-transition: opacity 0.15s ease-in;
 }
 
 .opacity-trans-visible {
     opacity: 1;
-    transition: opacity 0.4s ease-in;
-    -webkit-transition: opacity 0.4s ease-in;
+    transition: opacity 0.15s ease-in;
+    -webkit-transition: opacity 0.1s5 ease-in;
 }
 
 .grid50 {
@@ -137,6 +137,14 @@ a.read-more-container {
   to { transform: translateX(-30px); }
 }
 
+@keyframes slide-from-top {
+  from { transform: translateY(30px); }
+}
+
+@keyframes slide-to-bottom {
+  to { transform: translateY(-30px); }
+}
+
 ::view-transition-old(root) {
   animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
     300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
@@ -148,27 +156,7 @@ a.read-more-container {
 }
 
 /* Entry transition */
-::view-transition-new(navbar):only-child {
+::view-transition-new(nav):only-child {
   animation: 300ms cubic-bezier(0, 0, 0.2, 1) both fade-in,
     300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-top;
-}
-
-::view-transition-old(blog-title) {
-  /* Prevent the default animation,
-  so both views remain opacity:1 throughout the transition*/
-  animation: none;
-  opacity: 0;
-  /* Use normal blending,
-  so the new view sits on top and obscures the old view */
-  mix-blend-mode: normal;
-}
-
-::view-transition-new(blog-title) {
-  /* Prevent the default animation,
-  so both views remain opacity:1 throughout the transition*/
-  animation: none;
-  opacity: 1;
-  /* Use normal blending,
-  so the new view sits on top and obscures the old view */
-  mix-blend-mode: normal;
 }

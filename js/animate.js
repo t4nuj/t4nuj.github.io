@@ -38,7 +38,7 @@ var TYPE_RESERVED = 255;
 function typeWriter(elem,n) {
     if (n < (text.length)) {
         elem.innerHTML = text[n];
-        var time = 150;
+        var time = 100;
         n++;
         setTimeout(function() {
             typeWriter(elem, n);
@@ -83,11 +83,9 @@ function clear_transitions() {
 function animate_website() {
     blink_id = setInterval(blinkCursor,420);
     window.onload = function() {
-    var elem = document.getElementById('terminal');
-    setTimeout(function() {
-            clearInterval(blink_id);
-            typeWriter(elem,0);
-        },1500);
+        var elem = document.getElementById('terminal');
+        clearInterval(blink_id);
+        typeWriter(elem,0);
     };
     try {
         localStore.setItem('animationDate', (new Date()).toISOString());
