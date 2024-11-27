@@ -267,7 +267,7 @@ GEM
       unf_ext
     unf_ext (0.0.8)
     unicode-display_width (1.8.0)
-    webrick (1.7.0)
+    webrick (1.8.2)
     zeitwerk (2.6.6)
 
 PLATFORMS
@@ -279,7 +279,7 @@ DEPENDENCIES
   jekyll-seo-tag
   minima (~> 2.0)
   tzinfo-data
-  webrick (~> 1.7)
+  webrick (~> 1.8)
 
 RUBY VERSION
    ruby 2.7.7p221
