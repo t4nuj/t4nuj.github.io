@@ -18,14 +18,14 @@ email: tanuj.bhatia95@gmail.com
 # description: > # this means to ignore newlines until "baseurl:"
 #   Personal Website and Blog.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://tanuj.me" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://tanujb.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  t4nuj
 social:
   name: Tanuj Bhatia
   links:
-    - https:tanuj.me/
-    - https:tanuj.me/blog/
-    - https:tanuj.me/work/
+    - https:tanujb.com/
+    - https:tanujb.com/blog/
+    - https:tanujb.com/work/
     - https://www.github.com/t4nuj
     - https://www.linkedin.com/in/t4nuj
     - https://www.facebook.com/t4nuj
